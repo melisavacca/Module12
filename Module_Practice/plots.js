@@ -27,12 +27,8 @@ function init() {
       var PANEL = d3.select("#sample-metadata");
   
       PANEL.html("");
-      PANEL.append("h2").text(result.id);
-      PANEL.append("h3").text(result.ethnicity);
-      PANEL.append("h4").text(result.gender);
-      PANEL.append("h5").text(result.age);
-      PANEL.append("h6").text(result.location);
-      PANEL.append("h7").text(result.bbtype);
-      PANEL.append("h8").text(result.wfreq);
+        Object.entries(result).forEach(([key, value]) => {
+            PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+        });
     });
-  }
+}
